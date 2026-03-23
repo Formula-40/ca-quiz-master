@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="c192" width="192" height="192"></canvas>
+<canvas id="c512" width="512" height="512"></canvas>
+<script>
+function draw(canvas) {
+  const ctx = canvas.getContext('2d');
+  const s = canvas.width;
+  // Background gradient
+  const grad = ctx.createLinearGradient(0, 0, s, s);
+  grad.addColorStop(0, '#00467F');
+  grad.addColorStop(1, '#0072CE');
+  ctx.fillStyle = grad;
+  ctx.beginPath();
+  ctx.roundRect(0, 0, s, s, s * 0.2);
+  ctx.fill();
+  // Airplane emoji
+  ctx.font = `${s * 0.5}px serif`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('✈️', s/2, s * 0.45);
+  // Text
+  ctx.fillStyle = 'white';
+  ctx.font = `bold ${s * 0.12}px sans-serif`;
+  ctx.fillText('CA就活', s/2, s * 0.8);
+}
+draw(document.getElementById('c192'));
+draw(document.getElementById('c512'));
+// Convert to downloadable links
+['c192','c512'].forEach(id => {
+  const c = document.getElementById(id);
+  const a = document.createElement('a');
+  a.href = c.toDataURL('image/png');
+  a.download = `icon-${c.width}.png`;
+  a.textContent = `Download ${c.width}px`;
+  document.body.appendChild(a);
+  a.click();
+});
+</script>
+</body>
+</html>

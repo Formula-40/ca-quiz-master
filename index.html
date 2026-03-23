@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CA就活マスター — ANA・JAL 企業分析 & 面接対策クイズ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#00467F">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="CA就活マスター">
+  <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+  <!-- ===== Landing Page ===== -->
+  <div id="landing" class="page active">
+    <div class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="logo-icon">✈️</div>
+        <h1>CA就活マスター</h1>
+        <p class="subtitle">ANA・JAL 企業分析 & 面接対策クイズ</p>
+        <p class="desc">新卒CA採用に向けた本格クイズで、企業理解と面接力を鍛えよう</p>
+
+        <div class="mode-cards">
+          <div class="mode-card ana-card" onclick="startQuiz('ana')">
+            <div class="airline-logo ana-logo">ANA</div>
+            <h3>ANA 企業分析</h3>
+            <p>全日本空輸の企業情報・サービス・採用について</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="mode-card jal-card" onclick="startQuiz('jal')">
+            <div class="airline-logo jal-logo">JAL</div>
+            <h3>JAL 企業分析</h3>
+            <p>日本航空の企業情報・サービス・採用について</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="mode-card interview-card" onclick="startQuiz('interview')">
+            <div class="airline-logo interview-logo">💬</div>
+            <h3>面接対策</h3>
+            <p>ANA・JAL CA面接で実際に聞かれた質問 & 対策</p>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Difficulty Select ===== -->
+  <div id="difficulty" class="page">
+    <div class="container">
+      <button class="back-btn" onclick="goBack('landing')">← 戻る</button>
+      <div class="difficulty-header">
+        <div id="diff-icon" class="airline-logo"></div>
+        <h2 id="diff-title"></h2>
+      </div>
+      <div class="difficulty-cards">
+        <div class="diff-card beginner" onclick="selectDifficulty('beginner')">
+          <div class="diff-badge">⭐</div>
+          <h3>初級</h3>
+          <p>基本的な企業情報・サービス知識</p>
+          <span class="question-count">10問</span>
+        </div>
+        <div class="diff-card intermediate" onclick="selectDifficulty('intermediate')">
+          <div class="diff-badge">⭐⭐</div>
+          <h3>中級</h3>
+          <p>より深い企業理解・業界知識</p>
+          <span class="question-count">10問</span>
+        </div>
+        <div class="diff-card advanced" onclick="selectDifficulty('advanced')">
+          <div class="diff-badge">⭐⭐⭐</div>
+          <h3>上級</h3>
+          <p>面接で差がつく専門知識</p>
+          <span class="question-count">10問</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Quiz Page ===== -->
+  <div id="quiz" class="page">
+    <div class="container">
+      <div class="quiz-header">
+        <button class="back-btn" onclick="goBack('difficulty')">← 戻る</button>
+        <div class="quiz-progress">
+          <span id="q-current">1</span> / <span id="q-total">10</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div id="quiz-content" class="quiz-content">
+        <div class="question-badge" id="q-badge"></div>
+        <h2 id="q-text" class="question-text"></h2>
+
+        <div id="choices" class="choices"></div>
+
+        <div id="explanation" class="explanation hidden">
+          <div id="exp-icon" class="exp-icon"></div>
+          <p id="exp-text"></p>
+          <p id="exp-source" class="exp-source"></p>
+        </div>
+
+        <button id="next-btn" class="next-btn hidden" onclick="nextQuestion()">
+          次の問題 →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Result Page ===== -->
+  <div id="result" class="page">
+    <div class="container">
+      <div class="result-card">
+        <div id="result-icon" class="result-icon"></div>
+        <h2 id="result-title"></h2>
+        <div class="score-display">
+          <span id="score-num" class="score-num"></span>
+          <span class="score-label">/ 10 正解</span>
+        </div>
+        <div id="score-bar" class="score-bar">
+          <div id="score-fill" class="score-fill"></div>
+        </div>
+        <p id="result-msg" class="result-msg"></p>
+
+        <div id="result-review" class="result-review"></div>
+
+        <div class="result-actions">
+          <button class="retry-btn" onclick="retryQuiz()">もう一度チャレンジ</button>
+          <button class="home-btn" onclick="goBack('landing')">トップに戻る</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="quiz-data.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
+</body>
+</html>
