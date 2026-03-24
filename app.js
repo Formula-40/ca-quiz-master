@@ -4,21 +4,55 @@ let currentDifficulty = ''; // 'beginner' | 'intermediate' | 'advanced'
 let currentQuestions = [];
 let currentIndex = 0;
 let score = 0;
-let answers = []; // { question, correct, userAnswer, wasCorrect }
+let answers = []; // { question, correct, userAnswer, wasCorrect, explanation, source, sourceUrl, sourceDate }
+
+// ===== Scroll to Top =====
+const scrollTopBtn = document.getElementById('scroll-top-btn');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    scrollTopBtn.classList.add('visible');
+  } else {
+    scrollTopBtn.classList.remove('visible');
+  }
+});
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 // ===== Navigation =====
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const page = document.getElementById(id);
   page.classList.add('active');
-  // Re-trigger animation
   page.style.animation = 'none';
-  page.offsetHeight; // reflow
+  page.offsetHeight;
   page.style.animation = '';
+  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 function goBack(target) {
   showPage(target);
+}
+
+// ===== Study Page =====
+let currentStudyMode = '';
+
+function showStudy(mode) {
+  currentStudyMode = mode;
+  const content = document.getElementById('study-content');
+
+  if (typeof STUDY_DATA !== 'undefined' && STUDY_DATA[mode]) {
+    content.innerHTML = STUDY_DATA[mode];
+  } else {
+    content.innerHTML = '<p>勉強データを読み込んでいます...</p>';
+  }
+
+  showPage('study');
+}
+
+function startQuizFromStudy() {
+  startQuiz(currentStudyMode);
 }
 
 // ===== Start Quiz =====
@@ -37,7 +71,7 @@ function startQuiz(mode) {
     diffTitle.textContent = 'JAL 企業分析クイズ';
   } else {
     diffIcon.className = 'airline-logo interview-logo';
-    diffIcon.textContent = '💬';
+    diffIcon.innerHTML = '<svg viewBox="0 0 24 24" width="24" height="24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>';
     diffTitle.textContent = '面接対策クイズ';
   }
 
@@ -51,7 +85,6 @@ function selectDifficulty(diff) {
   score = 0;
   answers = [];
 
-  // Get question pool and shuffle
   let pool = [];
   if (currentMode === 'ana') {
     pool = QUIZ_DATA.ana[diff] || [];
@@ -63,7 +96,6 @@ function selectDifficulty(diff) {
 
   currentQuestions = shuffleArray([...pool]).slice(0, 10);
 
-  // Update progress bar color
   const fill = document.getElementById('progress-fill');
   if (currentMode === 'ana') {
     fill.style.background = 'linear-gradient(90deg, #00467F, #00A0E9)';
@@ -82,13 +114,11 @@ function renderQuestion() {
   const q = currentQuestions[currentIndex];
   if (!q) return;
 
-  // Update progress
   document.getElementById('q-current').textContent = currentIndex + 1;
   document.getElementById('q-total').textContent = currentQuestions.length;
   document.getElementById('progress-fill').style.width =
     ((currentIndex + 1) / currentQuestions.length * 100) + '%';
 
-  // Badge
   const badge = document.getElementById('q-badge');
   if (currentMode === 'ana') {
     badge.className = 'question-badge ana';
@@ -101,10 +131,8 @@ function renderQuestion() {
     badge.textContent = '面接対策';
   }
 
-  // Question text
   document.getElementById('q-text').textContent = q.question;
 
-  // Shuffle choices
   const labels = ['A', 'B', 'C', 'D'];
   const shuffledChoices = shuffleArray(
     q.choices.map((c, i) => ({ text: c, isCorrect: i === q.answer }))
@@ -121,11 +149,9 @@ function renderQuestion() {
     choicesEl.appendChild(btn);
   });
 
-  // Hide explanation & next
   document.getElementById('explanation').classList.add('hidden');
   document.getElementById('next-btn').classList.add('hidden');
 
-  // Animate content
   const content = document.getElementById('quiz-content');
   content.style.animation = 'none';
   content.offsetHeight;
@@ -134,7 +160,6 @@ function renderQuestion() {
 
 // ===== Handle Answer =====
 function handleAnswer(btn, isCorrect, shuffledChoices, q) {
-  // Prevent double click
   const allBtns = document.querySelectorAll('.choice-btn');
   if (btn.classList.contains('answered')) return;
 
@@ -145,7 +170,6 @@ function handleAnswer(btn, isCorrect, shuffledChoices, q) {
     score++;
   } else {
     btn.classList.add('wrong');
-    // Highlight correct answer
     allBtns.forEach((b, i) => {
       if (shuffledChoices[i].isCorrect) {
         b.classList.add('correct');
@@ -153,12 +177,15 @@ function handleAnswer(btn, isCorrect, shuffledChoices, q) {
     });
   }
 
-  // Store answer
   answers.push({
     question: q.question,
     correct: q.choices[q.answer],
     userAnswer: btn.querySelector('span:last-child').textContent,
-    wasCorrect: isCorrect
+    wasCorrect: isCorrect,
+    explanation: q.explanation,
+    source: q.source || '',
+    sourceUrl: q.sourceUrl || null,
+    sourceDate: q.sourceDate || ''
   });
 
   // Show explanation
@@ -175,9 +202,23 @@ function handleAnswer(btn, isCorrect, shuffledChoices, q) {
     exp.classList.add('wrong-exp');
   }
   expText.textContent = q.explanation;
-  expSource.textContent = q.source ? `出典: ${q.source}` : '';
 
-  // Show next button
+  // Source with link
+  if (q.source) {
+    let sourceHtml = '';
+    if (q.sourceUrl) {
+      sourceHtml = `出典: <a href="${q.sourceUrl}" target="_blank" rel="noopener">${q.source}</a>`;
+    } else {
+      sourceHtml = `出典: ${q.source}`;
+    }
+    if (q.sourceDate) {
+      sourceHtml += ` (${q.sourceDate})`;
+    }
+    expSource.innerHTML = sourceHtml;
+  } else {
+    expSource.innerHTML = '';
+  }
+
   const nextBtn = document.getElementById('next-btn');
   nextBtn.classList.remove('hidden');
 
@@ -211,7 +252,6 @@ function showResult() {
 
   scoreNum.textContent = score;
 
-  // Animated score bar
   setTimeout(() => {
     fill.style.width = (pct * 100) + '%';
     if (pct >= 0.8) {
@@ -245,9 +285,53 @@ function showResult() {
     msg.textContent = 'まだまだ伸びしろがあります！一つずつ確実に覚えていきましょう。';
   }
 
-  // Review
+  // Wrong answers summary
+  const wrongAnswers = answers.filter(a => !a.wasCorrect);
+  const wrongSummary = document.getElementById('wrong-summary');
+  const wrongList = document.getElementById('wrong-list');
+
+  if (wrongAnswers.length > 0) {
+    wrongSummary.classList.remove('hidden');
+    wrongList.innerHTML = '';
+
+    wrongAnswers.forEach((a, i) => {
+      const card = document.createElement('div');
+      card.className = 'wrong-card';
+
+      let sourceHtml = '';
+      if (a.source) {
+        if (a.sourceUrl) {
+          sourceHtml = `<a href="${a.sourceUrl}" target="_blank" rel="noopener">${a.source}</a>`;
+        } else {
+          sourceHtml = a.source;
+        }
+        if (a.sourceDate) {
+          sourceHtml += ` (${a.sourceDate})`;
+        }
+        sourceHtml = `<div class="wrong-source">📎 ${sourceHtml}</div>`;
+      }
+
+      card.innerHTML = `
+        <div class="wrong-card-header">
+          <span class="wrong-num">❌ Q${answers.indexOf(a) + 1}</span>
+        </div>
+        <div class="wrong-question">${a.question}</div>
+        <div class="wrong-answers">
+          <div class="wrong-your"><span class="wrong-label">あなたの回答:</span> ${a.userAnswer}</div>
+          <div class="wrong-correct"><span class="wrong-label">正解:</span> ${a.correct}</div>
+        </div>
+        <div class="wrong-explanation">${a.explanation}</div>
+        ${sourceHtml}
+      `;
+      wrongList.appendChild(card);
+    });
+  } else {
+    wrongSummary.classList.add('hidden');
+  }
+
+  // Full review
   const review = document.getElementById('result-review');
-  review.innerHTML = '<h3 style="font-size:1rem;font-weight:600;margin-bottom:12px;">解答一覧</h3>';
+  review.innerHTML = '';
   answers.forEach((a, i) => {
     const div = document.createElement('div');
     div.className = `review-item ${a.wasCorrect ? 'review-correct' : 'review-wrong'}`;

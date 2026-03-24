@@ -16,6 +16,11 @@
   <link rel="apple-touch-icon" href="icon-192.png">
 </head>
 <body>
+  <!-- ===== Scroll to Top Button ===== -->
+  <button id="scroll-top-btn" class="scroll-top-btn" onclick="scrollToTop()" title="トップに戻る">
+    ✈️
+  </button>
+
   <!-- ===== Landing Page ===== -->
   <div id="landing" class="page active">
     <div class="hero">
@@ -26,26 +31,61 @@
         <p class="subtitle">ANA・JAL 企業分析 & 面接対策クイズ</p>
         <p class="desc">新卒CA採用に向けた本格クイズで、企業理解と面接力を鍛えよう</p>
 
+        <div class="section-label">📖 まずは勉強する</div>
+        <div class="mode-cards study-cards">
+          <div class="mode-card study-card ana-card" onclick="showStudy('ana')">
+            <div class="airline-logo ana-logo">ANA</div>
+            <h3>ANA 企業研究ノート</h3>
+            <p>企業概要・理念・サービス・採用情報を学ぶ</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="mode-card study-card jal-card" onclick="showStudy('jal')">
+            <div class="airline-logo jal-logo">JAL</div>
+            <h3>JAL 企業研究ノート</h3>
+            <p>企業概要・JALフィロソフィ・採用情報を学ぶ</p>
+            <span class="card-arrow">→</span>
+          </div>
+          <div class="mode-card study-card interview-card" onclick="showStudy('interview')">
+            <div class="airline-logo interview-logo">💬</div>
+            <h3>面接対策ノート</h3>
+            <p>面接の流れ・頻出質問・回答のコツを学ぶ</p>
+            <span class="card-arrow">→</span>
+          </div>
+        </div>
+
+        <div class="section-label" style="margin-top:40px;">✏️ クイズに挑戦する</div>
         <div class="mode-cards">
           <div class="mode-card ana-card" onclick="startQuiz('ana')">
             <div class="airline-logo ana-logo">ANA</div>
-            <h3>ANA 企業分析</h3>
+            <h3>ANA 企業分析クイズ</h3>
             <p>全日本空輸の企業情報・サービス・採用について</p>
             <span class="card-arrow">→</span>
           </div>
           <div class="mode-card jal-card" onclick="startQuiz('jal')">
             <div class="airline-logo jal-logo">JAL</div>
-            <h3>JAL 企業分析</h3>
+            <h3>JAL 企業分析クイズ</h3>
             <p>日本航空の企業情報・サービス・採用について</p>
             <span class="card-arrow">→</span>
           </div>
           <div class="mode-card interview-card" onclick="startQuiz('interview')">
             <div class="airline-logo interview-logo">💬</div>
-            <h3>面接対策</h3>
+            <h3>面接対策クイズ</h3>
             <p>ANA・JAL CA面接で実際に聞かれた質問 & 対策</p>
             <span class="card-arrow">→</span>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Study Page ===== -->
+  <div id="study" class="page">
+    <div class="container">
+      <button class="back-btn" onclick="goBack('landing')">← トップに戻る</button>
+      <div id="study-content" class="study-content"></div>
+      <div class="study-actions">
+        <button class="retry-btn" id="study-quiz-btn" onclick="startQuizFromStudy()">📝 このジャンルのクイズに挑戦 →</button>
+        <button class="home-btn" onclick="goBack('landing')">← トップに戻る</button>
       </div>
     </div>
   </div>
@@ -128,7 +168,18 @@
         </div>
         <p id="result-msg" class="result-msg"></p>
 
-        <div id="result-review" class="result-review"></div>
+        <!-- Wrong answers summary -->
+        <div id="wrong-summary" class="wrong-summary hidden">
+          <h3 class="wrong-summary-title">❌ 間違えた問題まとめ</h3>
+          <p class="wrong-summary-desc">復習して次は正解を目指そう！</p>
+          <div id="wrong-list" class="wrong-list"></div>
+        </div>
+
+        <!-- Full review toggle -->
+        <details class="review-details">
+          <summary class="review-toggle">📋 全問の解答一覧を見る</summary>
+          <div id="result-review" class="result-review"></div>
+        </details>
 
         <div class="result-actions">
           <button class="retry-btn" onclick="retryQuiz()">もう一度チャレンジ</button>
@@ -139,6 +190,7 @@
   </div>
 
   <script src="quiz-data.js"></script>
+  <script src="study-data.js"></script>
   <script src="app.js"></script>
   <script>
     if ('serviceWorker' in navigator) {

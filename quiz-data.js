@@ -15,84 +15,108 @@ const QUIZ_DATA = {
         choices: ["全日本空輸株式会社", "全日本航空株式会社", "日本空輸株式会社", "全日空株式会社"],
         answer: 0,
         explanation: "ANAの正式名称は「全日本空輸株式会社」です。英語名は All Nippon Airways Co., Ltd. です。",
-        source: "ANA公式サイト"
+        source: "ANA公式サイト",
+        sourceUrl: "https://www.ana.co.jp/group/about-us/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAが加盟している航空連合（アライアンス）は？",
         choices: ["スターアライアンス", "ワンワールド", "スカイチーム", "どのアライアンスにも加盟していない"],
         answer: 0,
         explanation: "ANAは1999年にスターアライアンスに加盟しました。日本の航空会社として初のアライアンス加盟でした。なお、JALはワンワールドに加盟しています。",
-        source: "ANA公式サイト"
+        source: "ANA公式サイト",
+        sourceUrl: "https://www.ana.co.jp/group/about-us/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAのブランドスローガンは？",
         choices: ["あんしん、あったか、あかるく元気！", "世界で一番選ばれる航空会社", "翼の王国へようこそ", "空から未来を創る"],
         answer: 0,
         explanation: "ANAのブランドスローガンは「あんしん、あったか、あかるく元気！」です。ANAらしいサービスの姿勢を表現しています。面接で「このスローガンをどう体現するか」を聞かれることもあります。",
-        source: "ANA公式サイト"
+        source: "ANA公式サイト",
+        sourceUrl: "https://www.ana.co.jp/group/about-us/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAの持株会社「ANAホールディングス」の本社所在地はどこ？",
         choices: ["東京都港区（汐留シティセンター）", "東京都大田区（羽田空港内）", "千葉県成田市", "東京都千代田区"],
         answer: 0,
         explanation: "ANAホールディングスの本社は東京都港区東新橋の汐留シティセンターにあります。",
-        source: "ANAホールディングス公式サイト"
+        source: "ANAホールディングス公式サイト",
+        sourceUrl: "https://www.anahd.co.jp/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAのグループ経営ビジョンは？",
         choices: ["ワクワクで満たされる世界を", "空から日本を元気にする", "翼でつなぐ未来の架け橋", "安全第一、サービス最優先"],
         answer: 0,
         explanation: "ANAのグループ経営ビジョンは「ワクワクで満たされる世界を」です。航空事業を超えた価値創造を目指すビジョンです。",
-        source: "ANA統合報告書"
+        source: "ANA統合報告書",
+        sourceUrl: "https://www.anahd.co.jp/group/pr/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAの主要ハブ空港として正しい組み合わせは？",
         choices: ["羽田空港・成田空港", "羽田空港・関西空港", "成田空港・中部空港", "羽田空港・伊丹空港"],
         answer: 0,
         explanation: "ANAのハブ空港は、羽田空港（国内線・国際線）と成田空港（国際線）です。",
-        source: "ANA公式サイト"
+        source: "ANA公式サイト",
+        sourceUrl: "https://www.ana.co.jp/group/about-us/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAグループのLCC（格安航空会社）子会社の名前は？",
         choices: ["Peach Aviation", "ジェットスター・ジャパン", "スカイマーク", "ZIPAIR"],
         answer: 0,
         explanation: "ANAグループのLCCはPeach Aviation（ピーチ・アビエーション）です。なお、ZIPAIRはJALグループのLCCです。",
-        source: "ANAホールディングス公式サイト"
+        source: "ANAホールディングス公式サイト",
+        sourceUrl: "https://www.anahd.co.jp/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAの前身となった会社の名前は？",
         choices: ["日本ヘリコプター輸送株式会社", "極東航空株式会社", "日本航空輸送株式会社", "東亜国内航空株式会社"],
         answer: 0,
         explanation: "ANAは1952年に「日本ヘリコプター輸送株式会社」として設立され、1957年に「全日本空輸」に商号変更しました。",
-        source: "ANA公式サイト"
+        source: "ANA公式サイト",
+        sourceUrl: "https://www.ana.co.jp/group/about-us/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAのマイレージプログラムの名前は？",
         choices: ["ANAマイレージクラブ", "ANAスカイパス", "ANAフライヤーズクラブ", "ANAマイルプラス"],
         answer: 0,
         explanation: "ANAマイレージクラブ（AMC）は会員数約4,000万人以上を誇る日本最大級のマイレージプログラムです。",
-        source: "ANA公式サイト"
+        source: "ANA公式サイト",
+        sourceUrl: "https://www.ana.co.jp/group/about-us/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAの行動指針「ANA's Way」の4つの柱に含まれないのは？",
         choices: ["利益追求", "安全（Safety）", "お客様視点", "チームスピリット"],
         answer: 0,
         explanation: "ANA's Wayの4つの柱は「安全（Safety）」「お客様視点（Customer Orientation）」「社会への責任（Social Responsibility）」「チームスピリット（Team Spirit）」です。利益追求は含まれません。",
-        source: "ANA公式サイト"
+        source: "ANA公式サイト",
+        sourceUrl: "https://www.ana.co.jp/group/about-us/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAが設立された年は？",
         choices: ["1952年", "1951年", "1960年", "1945年"],
         answer: 0,
         explanation: "ANAは1952年12月27日に日本ヘリコプター輸送株式会社として設立されました。なお、JALは1951年設立です。",
-        source: "ANA公式サイト"
+        source: "ANA公式サイト",
+        sourceUrl: "https://www.ana.co.jp/group/about-us/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAグループの連結従業員数はおよそ何名？",
         choices: ["約45,000名", "約20,000名", "約80,000名", "約10,000名"],
         answer: 0,
         explanation: "ANAグループの連結従業員数は約45,000名です。そのうちCAは約7,000名を占めています。",
-        source: "ANAホールディングス有価証券報告書"
+        source: "ANAホールディングス有価証券報告書",
+        sourceUrl: "https://www.anahd.co.jp/group/investors/",
+        sourceDate: "2024年"
       }
     ],
 
@@ -102,84 +126,108 @@ const QUIZ_DATA = {
         choices: ["2013年", "2010年", "2015年", "2018年"],
         answer: 0,
         explanation: "ANAは2013年にスカイトラックス社の「5スター」認定を日本の航空会社として初めて取得し、以降11年以上連続で維持しています。",
-        source: "SKYTRAX worldairlineawards.com"
+        source: "SKYTRAX worldairlineawards.com",
+        sourceUrl: "https://www.worldairlineawards.com/",
+        sourceDate: "2024年"
       },
       {
         question: "ANAは世界で初めてある機材の商業飛行を行いました。その機材は？",
         choices: ["ボーイング787", "エアバスA380", "ボーイング777X", "エアバスA350"],
         answer: 0,
         explanation: "ANAは2011年にボーイング787ドリームライナーの世界初の商業飛行を行いました。ANAはB787のローンチカスタマー（最初の発注者）です。",
-        source: "ANA公式サイト、Aviation Wire"
+        source: "ANA公式サイト、Aviation Wire",
+        sourceUrl: "https://www.aviationwire.jp/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAが持株会社制に移行した年は？",
         choices: ["2013年", "2010年", "2015年", "2020年"],
         answer: 0,
         explanation: "2013年4月1日にANAは持株会社制に移行し、「ANAホールディングス株式会社」となりました。航空運送事業は子会社の全日本空輸株式会社が担っています。",
-        source: "ANAホールディングス公式サイト"
+        source: "ANAホールディングス公式サイト",
+        sourceUrl: "https://www.anahd.co.jp/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAの2024年3月期（FY2023）の連結売上高はおよそいくら？",
         choices: ["約2兆559億円", "約1兆5,000億円", "約3兆円", "約8,000億円"],
         answer: 0,
         explanation: "FY2023（2024年3月期）の連結売上高は約2兆559億円で、過去最高益を更新しました。コロナ禍からの完全回復を示しています。",
-        source: "ANAホールディングス決算報告"
+        source: "ANAホールディングス決算報告",
+        sourceUrl: "https://www.anahd.co.jp/group/investors/",
+        sourceDate: "2024年"
       },
       {
         question: "ANAが2050年までに達成を目指している環境目標は？",
         choices: ["カーボンニュートラル", "プラスチック全面廃止", "電気飛行機の完全導入", "全路線のSAF100%化"],
         answer: 0,
         explanation: "ANAは2050年カーボンニュートラル（CO2排出実質ゼロ）を宣言しています。SAF（持続可能な航空燃料）の導入推進もその一環です。",
-        source: "ANA統合報告書"
+        source: "ANA統合報告書",
+        sourceUrl: "https://www.anahd.co.jp/group/pr/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAのCA新卒採用で最初に行われる選考は？",
         choices: ["ES（エントリーシート）提出", "Web適性検査", "グループ面接", "動画選考"],
         answer: 0,
         explanation: "ANAのCA新卒採用はまずES（エントリーシート）の提出から始まり、その後に動画選考→1次グループ面接→2次グループ面接→最終個人面接と進みます。",
-        source: "ANA採用サイト、ONE CAREER体験談"
+        source: "ANA採用サイト、ONE CAREER体験談",
+        sourceUrl: "https://www.anahd.co.jp/recruit/",
+        sourceDate: "2025-2026年"
       },
       {
         question: "ANAの新卒CA採用における応募資格として正しいのは？",
         choices: ["4年制大学または大学院の卒業見込み者", "短期大学の卒業見込み者も応募可能", "専門学校卒でも応募可能", "高卒でも応募可能"],
         answer: 0,
         explanation: "ANAの新卒CA採用では、4年制大学または大学院の卒業見込み者が対象です。短大・専門学校卒は応募できません（※JALは短大・専門学校卒も応募可能です）。",
-        source: "ANA採用サイト"
+        source: "ANA採用サイト",
+        sourceUrl: "https://www.anahd.co.jp/recruit/",
+        sourceDate: "2025-2026年"
       },
       {
         question: "ANAが遠隔操作ロボット技術の国際コンテストに出資した名前は？",
         choices: ["ANA Avatar XPRIZE", "ANA Robot Challenge", "ANA Future Wings", "ANA Sky Innovation"],
         answer: 0,
         explanation: "ANAは「ANA Avatar XPRIZE」に出資し、アバターロボット「newme」の開発にも関わるなど、航空以外のイノベーションにも積極的です。",
-        source: "ANAホールディングス統合報告書"
+        source: "ANAホールディングス統合報告書",
+        sourceUrl: "https://www.anahd.co.jp/group/pr/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAのCA約7,000名のうち、上級会員向けのプレミアムサービスを提供するための特別な資格は？",
         choices: ["サービスコーディネーター", "チーフパーサー", "プレミアムマイスター", "ファーストクラスアテンダント"],
         answer: 0,
         explanation: "ANAではCAの中でもサービスの質を高めるため、経験やスキルに応じた役職・資格制度があります。チーフパーサーが客室全体のサービスを統括します。",
-        source: "ANA採用サイト"
+        source: "ANA採用サイト",
+        sourceUrl: "https://www.anahd.co.jp/recruit/",
+        sourceDate: "2025-2026年"
       },
       {
         question: "ANAがスターアライアンスに加盟した年は？",
         choices: ["1999年", "2003年", "1995年", "2007年"],
         answer: 0,
         explanation: "ANAは1999年にスターアライアンスに加盟しました。日本の航空会社として初のアライアンス加盟です。",
-        source: "ANA公式サイト"
+        source: "ANA公式サイト",
+        sourceUrl: "https://www.ana.co.jp/group/about-us/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAの保有機材数はグループ全体でおよそ何機？",
         choices: ["約290機", "約150機", "約500機", "約100機"],
         answer: 0,
         explanation: "ANAグループの保有機材数は約290機です。ボーイング787を世界最多の約80機以上保有しています。",
-        source: "ANAホールディングス"
+        source: "ANAホールディングス",
+        sourceUrl: "https://www.anahd.co.jp/group/pr/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAの国内線旅客シェアはおよそ何パーセント？",
         choices: ["約50%超", "約30%", "約70%", "約40%"],
         answer: 0,
         explanation: "ANAは日本国内の航空旅客シェアで首位（約50%超）を維持しています。羽田空港の発着枠でもJALを上回っています。",
-        source: "国土交通省航空局資料"
+        source: "国土交通省航空局資料",
+        sourceUrl: "https://www.mlit.go.jp/koku/",
+        sourceDate: "2024年"
       }
     ],
 
@@ -189,21 +237,27 @@ const QUIZ_DATA = {
         choices: ["心の翼", "空の道", "飛翔の力", "翼の絆"],
         answer: 0,
         explanation: "ANAのグループ経営理念は「安心と信頼を基礎に、世界をつなぐ心の翼で、夢にあふれる未来に貢献します」です。「心の翼」がキーワードです。",
-        source: "ANA公式サイト"
+        source: "ANA公式サイト",
+        sourceUrl: "https://www.ana.co.jp/group/about-us/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAの上級会員制度「SFC」の正式名称は？",
         choices: ["スーパーフライヤーズカード", "スカイフリークエントカード", "スターフライトクラブ", "スペシャルフライヤーズクラブ"],
         answer: 0,
         explanation: "SFCは「Super Flyers Card（スーパーフライヤーズカード）」の略で、一定以上の搭乗実績を持つ会員に付与される上級会員資格です。",
-        source: "ANAマイレージクラブ"
+        source: "ANAマイレージクラブ",
+        sourceUrl: "https://www.ana.co.jp/ja/jp/amc/",
+        sourceDate: "2025年"
       },
       {
         question: "SAF（持続可能な航空燃料）に関してANAが参画しているプログラム名は？",
         choices: ["ACT FOR SKY", "GREEN FLY INITIATIVE", "SKY CLEAN PROJECT", "ECO WINGS"],
         answer: 0,
         explanation: "ANAは「ACT FOR SKY」プログラムに参画し、SAFの国産化・導入拡大を推進しています。",
-        source: "ANA公式プレスリリース"
+        source: "ANA公式プレスリリース",
+        sourceUrl: "https://www.anahd.co.jp/group/pr/",
+        sourceDate: "2025年"
       },
       {
         question: "ANA's Way（行動指針）の4つの柱の正しい組み合わせは？",
@@ -215,21 +269,27 @@ const QUIZ_DATA = {
         ],
         answer: 0,
         explanation: "ANA's Wayは「安全（Safety）」「お客様視点（Customer Orientation）」「社会への責任（Social Responsibility）」「チームスピリット（Team Spirit）」の4つです。",
-        source: "ANA公式サイト"
+        source: "ANA公式サイト",
+        sourceUrl: "https://www.ana.co.jp/group/about-us/",
+        sourceDate: "2025年"
       },
       {
         question: "2025年の大阪・関西万博（EXPO 2025）においてANAはどのような立場？",
         choices: ["オフィシャルエアライン", "メインスポンサー", "パビリオン出展のみ", "関与していない"],
         answer: 0,
         explanation: "ANAは大阪・関西万博のオフィシャルエアラインとして参画しています。",
-        source: "ANA公式プレスリリース"
+        source: "ANA公式プレスリリース",
+        sourceUrl: "https://www.anahd.co.jp/group/pr/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAのCA採用で動画選考が行われる目的として最も重視されるのは？",
         choices: ["表情・話し方・雰囲気", "英語力のテスト", "専門知識の確認", "体力テスト"],
         answer: 0,
         explanation: "ANAの動画選考ではCA適性として「表情・話し方・雰囲気」が重視されます。笑顔の自然さ、声のトーン、話し方の明るさが評価ポイントです。",
-        source: "ONE CAREER体験談、エアラインスクール情報"
+        source: "ONE CAREER体験談、エアラインスクール情報",
+        sourceUrl: "https://www.onecareer.jp/",
+        sourceDate: "2024-2025年"
       },
       {
         question: "ANAのCA面接で「なぜJALではなくANAなのか」と聞かれた際に重要なポイントは？",
@@ -241,7 +301,9 @@ const QUIZ_DATA = {
         ],
         answer: 0,
         explanation: "JALとの比較ではJALの批判ではなく、ANAの具体的なサービス・理念・社風に対する共感を自分のエピソードと結びつけて語ることが重要です。",
-        source: "ONE CAREER、unistyle面接対策"
+        source: "ONE CAREER、unistyle面接対策",
+        sourceUrl: "https://www.onecareer.jp/",
+        sourceDate: "2024-2025年"
       },
       {
         question: "ANAの1次グループ面接の特徴として正しいのは？",
@@ -253,35 +315,45 @@ const QUIZ_DATA = {
         ],
         answer: 0,
         explanation: "ANAの1次グループ面接では、面接官2名のうち1名が話す内容を、もう1名が他の受験者が話している時の聞く姿勢を評価しているとされています。",
-        source: "エアラインスクールVIC、2024年体験談"
+        source: "エアラインスクールVIC、2024年体験談",
+        sourceUrl: "https://www.vic-academy.jp/",
+        sourceDate: "2024-2025年"
       },
       {
         question: "ANAのメタバース空間での旅行体験プラットフォームの名前は？",
         choices: ["ANA NEO", "ANA VIRTUAL SKY", "ANA METAWORLD", "ANA SKYVERSE"],
         answer: 0,
         explanation: "ANA NEOはメタバース空間で旅行体験ができるバーチャルトラベルプラットフォームです。航空以外の新規事業の一環です。",
-        source: "ANAホールディングス"
+        source: "ANAホールディングス",
+        sourceUrl: "https://www.anahd.co.jp/group/pr/",
+        sourceDate: "2025年"
       },
       {
         question: "ANAのCA新卒採用のTOEICスコアの目安は？",
         choices: ["600点以上が望ましい（実質700点以上が有利）", "800点以上必須", "500点以上必須", "TOEICは不要"],
         answer: 0,
         explanation: "公式には「TOEIC600点以上が望ましい」とされていますが、実際には700点以上が有利とされています。英語面接が入る場合もあります。",
-        source: "ANA採用サイト、ONE CAREER"
+        source: "ANA採用サイト、ONE CAREER",
+        sourceUrl: "https://www.anahd.co.jp/recruit/",
+        sourceDate: "2025-2026年"
       },
       {
         question: "ANAの2024年のスカイトラックス「ワールド・エアライン・アワード」での順位は？",
         choices: ["第4位", "第1位", "第3位", "第10位"],
         answer: 0,
         explanation: "ANAは2024年のスカイトラックス「ワールド・エアライン・アワード」で第4位にランクインしました。5スター認定は継続しています。",
-        source: "SKYTRAX worldairlineawards.com"
+        source: "SKYTRAX worldairlineawards.com",
+        sourceUrl: "https://www.worldairlineawards.com/",
+        sourceDate: "2024年"
       },
       {
         question: "ANAの地域創生事業の名前は？",
         choices: ["ANA FLY&CO", "ANA LOCAL WINGS", "ANA REGIONAL", "ANA AREA CONNECT"],
         answer: 0,
         explanation: "ANA FLY&COは航空以外の事業領域拡大として地域創生事業を展開しています。航空ネットワークを活かした地方活性化を目指しています。",
-        source: "ANAホールディングス"
+        source: "ANAホールディングス",
+        sourceUrl: "https://www.anahd.co.jp/group/pr/",
+        sourceDate: "2025年"
       }
     ]
   },
@@ -294,21 +366,27 @@ const QUIZ_DATA = {
         choices: ["日本航空株式会社", "全日本航空株式会社", "日本空輸株式会社", "日本エアラインズ株式会社"],
         answer: 0,
         explanation: "JALの正式名称は「日本航空株式会社」（Japan Airlines Co., Ltd.）です。",
-        source: "JAL公式サイト"
+        source: "JAL公式サイト",
+        sourceUrl: "https://www.jal.com/ja/outline/",
+        sourceDate: "2025年"
       },
       {
         question: "JALが加盟している航空連合（アライアンス）は？",
         choices: ["ワンワールド", "スターアライアンス", "スカイチーム", "どのアライアンスにも加盟していない"],
         answer: 0,
         explanation: "JALはワンワールド（oneworld）に加盟しています。ANAはスターアライアンスに加盟しています。",
-        source: "JAL公式サイト"
+        source: "JAL公式サイト",
+        sourceUrl: "https://www.jal.com/ja/outline/",
+        sourceDate: "2025年"
       },
       {
         question: "JALが設立された年は？",
         choices: ["1951年", "1952年", "1945年", "1960年"],
         answer: 0,
         explanation: "JALは1951年に設立されました。戦後日本で初めての民間航空会社です。ANAは1952年設立なので、JALの方が1年先輩です。",
-        source: "JAL公式サイト"
+        source: "JAL公式サイト",
+        sourceUrl: "https://www.jal.com/ja/outline/",
+        sourceDate: "2025年"
       },
       {
         question: "JALグループの企業理念に含まれるキーワードは？",
@@ -320,7 +398,9 @@ const QUIZ_DATA = {
         ],
         answer: 0,
         explanation: "JALグループ企業理念は「全社員の物心両面の幸福を追求し、一、お客さまに最高のサービスを提供します。一、企業価値を高め、社会の進歩発展に貢献します。」です。",
-        source: "JAL公式サイト"
+        source: "JAL公式サイト",
+        sourceUrl: "https://www.jal.com/ja/outline/",
+        sourceDate: "2025年"
       },
       {
         question: "JALのグループビジョン「JAL Vision 2030」で目指している姿は？",
@@ -332,21 +412,27 @@ const QUIZ_DATA = {
         ],
         answer: 0,
         explanation: "JAL Vision 2030では「世界で一番選ばれ、愛されるエアライングループ」を目指しています。",
-        source: "JAL公式サイト"
+        source: "JAL公式サイト",
+        sourceUrl: "https://www.jal.com/ja/outline/",
+        sourceDate: "2025年"
       },
       {
         question: "JALグループのLCC（格安航空会社）の名前は？",
         choices: ["ZIPAIR Tokyo", "Peach Aviation", "ジェットスター・ジャパン", "スプリング・ジャパン"],
         answer: 0,
         explanation: "JALグループのLCCは「ZIPAIR Tokyo（ジップエア トーキョー）」です。2020年に就航を開始し、中長距離LCCとして運航しています。Peach AviationはANAグループです。",
-        source: "JAL公式サイト"
+        source: "JAL公式サイト",
+        sourceUrl: "https://www.jal.com/ja/outline/",
+        sourceDate: "2025年"
       },
       {
         question: "JALが過去に経験した経営上の大きな出来事は？",
         choices: ["2010年に経営破綻し会社更生法を適用", "2008年にリーマンショックで倒産", "2015年に国有化された", "経営危機を経験したことはない"],
         answer: 0,
         explanation: "JALは2010年1月に会社更生法の適用を申請し、経営破綻を経験しました。その後、稲盛和夫氏をリーダーに再建を果たし、2012年に再上場しました。",
-        source: "JAL公式サイト"
+        source: "JAL公式サイト",
+        sourceUrl: "https://www.jal.com/ja/outline/",
+        sourceDate: "2025年"
       },
       {
         question: "JALの新卒CA採用で応募できる学歴は？",
